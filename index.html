@@ -4,21 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Synthesthesia Experience</title>
+      <!-- Meta Tags -->
+  <meta name="description" content="Turn typing into an immersive sound and visual experience. Music, art, and interaction collide.">
+  <meta property="og:title" content="Interactive Synthesthesia Experience">
+  <meta property="og:description" content="Transform typing into a multisensory journey with music and dynamic visuals.">
+  <meta property="og:image" content="preview-placeholder.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="preview-placeholder.jpg">
     <style>
+         @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Press+Start+2P&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #111, #222), url('https://www.transparenttextures.com/patterns/black-linen.png');
+      background-blend-mode: overlay;
+      color: #fff;
+      overflow-x: hidden;
+    }
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -32,16 +42,23 @@
         }
 
         .header h1 {
-            font-size: 3.5em;
-            font-weight: 700;
-            margin-bottom: 10px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #ffe66d, #6c5ce7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: colorShift 3s ease-in-out infinite;
-        }
-
+      font-family: 'Rubik Mono One', cursive;
+      font-size: 4em;
+      text-shadow: 3px 3px #000, -1px -1px #ff6b6b;
+      background: linear-gradient(135deg, #ff0080, #7928ca, #2afadf);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      animation: graffitiGlow 4s ease-in-out infinite;
+      clip-path: polygon(0 8%, 100% 0, 95% 90%, 5% 100%);
+      padding: 20px;
+      margin-bottom: 0;
+    }
+ @keyframes graffitiGlow {
+      0%, 100% { text-shadow: 0 0 5px #ff6b6b, 0 0 10px #4ecdc4; }
+      50% { text-shadow: 0 0 15px #ffe66d, 0 0 20px #6c5ce7; }
+    }
         @keyframes colorShift {
             0%, 100% { filter: hue-rotate(0deg); }
             50% { filter: hue-rotate(180deg); }
@@ -60,19 +77,18 @@
             margin-bottom: 40px;
         }
 
-        .meta-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease;
-        }
+         .meta-card {
+      background: url('https://www.transparenttextures.com/patterns/asfalt-light.png') repeat;
+      border-radius: 25px;
+      border: 2px dashed #ff6b6b;
+      clip-path: polygon(3% 0%, 97% 0%, 100% 10%, 100% 90%, 97% 100%, 3% 100%, 0% 90%, 0% 10%);
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      transition: transform 0.4s ease;
+    }
 
-        .meta-card:hover {
-            transform: translateY(-5px);
-        }
-
+         .meta-card:hover {
+      transform: scale(1.02) rotate(-0.5deg);
+    }
         .meta-card h3 {
             font-size: 1.5em;
             margin-bottom: 15px;
@@ -110,15 +126,16 @@
         }
 
         .preview-frame {
-            width: 100%;
-            height: 600px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 20px;
-            background: #000;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            margin-bottom: 20px;
-        }
+      background: repeating-linear-gradient(
+        45deg,
+        #000,
+        #000 10px,
+        #111 10px,
+        #111 20px
+      );
+      border: 6px double #ffe66d;
+      clip-path: polygon(0% 5%, 100% 0%, 100% 95%, 0% 100%);
+    }
 
         .iframe-container {
             position: relative;
@@ -134,12 +151,10 @@
         }
 
         .controls-info {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            backdrop-filter: blur(10px);
-        }
+      background: #1e1e1e;
+      border-left: 5px dotted #4ecdc4;
+      font-family: 'Courier New', Courier, monospace;
+    }
 
         .scale-grid {
             display: grid;
@@ -148,12 +163,11 @@
             margin: 20px 0;
         }
 
-        .scale-item {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            padding: 15px;
-            border-left: 4px solid #ff6b6b;
-        }
+        .scale-item, .feature-item {
+      background: rgba(255, 255, 255, 0.06);
+      clip-path: polygon(4% 0%, 96% 0%, 100% 8%, 100% 92%, 96% 100%, 4% 100%, 0% 92%, 0% 8%);
+      border-left: 5px solid #ff6b6b;
+    }
 
         .scale-item h4 {
             color: #fff;
@@ -187,23 +201,22 @@
         }
 
         .author-info {
-            text-align: center;
-            margin-top: 50px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-        }
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      clip-path: polygon(2% 0%, 98% 0%, 100% 10%, 100% 90%, 98% 100%, 2% 100%, 0 90%, 0 10%);
+      box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.05);
+    }
 
         .badge {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: bold;
-            margin: 2px;
-        }
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.75em;
+      background: linear-gradient(90deg, #00ff87, #60efff);
+      border: 1px solid #fff;
+      padding: 6px 10px;
+      margin: 5px;
+      box-shadow: 1px 1px 0 #000;
+      text-shadow: none;
+    }
 
         @media (max-width: 768px) {
             .meta-grid {
